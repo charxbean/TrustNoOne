@@ -134,6 +134,8 @@ public class FallingShapeBehavior : MonoBehaviour
         {
             //lose a life/end the game
             Debug.Log("Incorrect Shape");
+            LivesScript.lives -= 1;
+            Debug.Log("lives " + LivesScript.lives);
         }
     }
 }
