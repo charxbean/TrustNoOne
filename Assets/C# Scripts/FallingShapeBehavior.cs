@@ -42,7 +42,6 @@ public class FallingShapeBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(start);
         currentTag = gameObject.tag;
     }
 
@@ -72,7 +71,7 @@ public class FallingShapeBehavior : MonoBehaviour
                         gameObject.tag = ("Heart");
                         break;
                     default:
-                        Debug.Log("FallingObject: Not a real shape to switch");
+                        Debug.Log("Not a shape (FallingShape Behavior)");
                         break;
                     
                 }
@@ -104,22 +103,22 @@ public class FallingShapeBehavior : MonoBehaviour
     {
         if(tag == "Circle")
         {
-            Debug.Log("Circle");
+            //Debug.Log("Circle");
             //spriteRenderer.sprite = circleSprite;
         }
         else if(tag == "Square")
         {
-            Debug.Log("Square");
+            //Debug.Log("Square");
             //spriteRenderer.sprite = squareSprite;
         }
         else if(tag == "Triangle")
         {
-            Debug.Log("Triangle");
+            //Debug.Log("Triangle");
             //spriteRenderer.sprite = triangleSprite;
         }
         else if(tag == "Heart")
         {
-            Debug.Log("Heart");
+            //Debug.Log("Heart");
             //spriteRenderer.sprite = heartSprite;
         }
     }

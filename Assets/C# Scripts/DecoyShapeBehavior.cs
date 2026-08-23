@@ -41,7 +41,7 @@ public class DecoyShapeBehavior : MonoBehaviour
                 gameObject.tag = ("Heart");
                 break;
             default:
-                Debug.Log("FallingObject: Not a real shape to switch");
+                Debug.Log("Not a shape (DecoyShape Behavior)");
                 break;
                 
         }
@@ -57,22 +57,22 @@ public class DecoyShapeBehavior : MonoBehaviour
     {
         if(tag == "Circle")
         {
-            Debug.Log("0");
+            //Debug.Log("0");
             //spriteRenderer.sprite = circleSprite;
         }
         else if(tag == "Square")
         {
-            Debug.Log("1");
+            //Debug.Log("1");
             //spriteRenderer.sprite = squareSprite;
         }
         else if(tag == "Triangle")
         {
-            Debug.Log("2");
+            //Debug.Log("2");
             //spriteRenderer.sprite = triangleSprite;
         }
         else if(tag == "Heart")
         {
-            Debug.Log("3");
+            //Debug.Log("3");
             //spriteRenderer.sprite = heartSprite;
         }
     }
@@ -82,8 +82,6 @@ public class DecoyShapeBehavior : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(waitBeforeSeconds);
-
-            Debug.Log("Script A starting");
             spriteRenderer.enabled = true;
             
             yield return new WaitForSeconds(showSeconds);
@@ -93,8 +91,6 @@ public class DecoyShapeBehavior : MonoBehaviour
             OnShowDecoyComplete?.Invoke();
 
             yield return new WaitForSeconds(waitSeconds);
-
-            Debug.Log("Invoke");
 
         }
 
