@@ -444,8 +444,8 @@ Transform:
   m_GameObject: {fileID: 1634420655}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.01, y: -0.01, z: 0}
-  m_LocalScale: {x: 3.0615406, y: 3.0615406, z: 2.4815922}
+  m_LocalPosition: {x: 4.48, y: -0.37, z: 0}
+  m_LocalScale: {x: 5.182576, y: 5.182576, z: 4.2008395}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -463,7 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DecoyShapeBehavior
   waitBeforeSeconds: 2
-  showSeconds: 2
+  showSeconds: 1.5
   waitSeconds: 5
   circleSprite: {fileID: 0}
   squareSprite: {fileID: 0}
@@ -558,8 +558,8 @@ Transform:
   m_GameObject: {fileID: 1724938230}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.06, y: 0.45, z: 0}
-  m_LocalScale: {x: 3.9117885, y: 3.9117885, z: 3.9117885}
+  m_LocalPosition: {x: 13.23, y: 0.0519, z: 0}
+  m_LocalScale: {x: 3.062539, y: 3.062539, z: 3.062539}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -834,8 +834,8 @@ Transform:
   m_GameObject: {fileID: 1916339983}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.0252, y: 0.3748, z: 0}
-  m_LocalScale: {x: 3.8788714, y: 3.8788714, z: 3.8788714}
+  m_LocalPosition: {x: -5.4462, y: -0.0462, z: 0}
+  m_LocalScale: {x: 3.0367684, y: 3.0367684, z: 3.0367684}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

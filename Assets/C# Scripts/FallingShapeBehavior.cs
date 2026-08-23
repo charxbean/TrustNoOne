@@ -1,30 +1,142 @@
+using System;
+using System.Collections;
+using Unity.VectorGraphics;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class FallingShapeBehavior : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    
     private float horizontalInput;
-    //get the rb
     private Rigidbody2D rb; 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private string currentTag;
+    private bool start = false;
+
+    public float moveSpeed = 5f;
+    [SerializeField] private DecoyShapeBehavior DecoyShapeBehavior;
+
+    [Header("Shape Sprites")]
+    private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite circleSprite;
+    [SerializeField] private Sprite squareSprite;
+    [SerializeField] private Sprite triangleSprite;
+    [SerializeField] private Sprite heartSprite;
+
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        
     }
 
+    void OnEnable()
+    {
+        DecoyShapeBehavior.OnShowDecoyComplete += signalStart;
+    }
+
+    void OnDisable()
+    {
+        DecoyShapeBehavior.OnShowDecoyComplete -= signalStart;
+    }
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(start);
+        currentTag = gameObject.tag;
     }
 
     void FixedUpdate()
     {
-        if(rb.position.x <= -11)
+        if (start)
         {
-            rb.position = new Vector2(15f, 0.5f);
+            if(rb.position.x <= -5)
+            {
+                rb.position = new Vector2(15f, 0.5f);
+                //replace with finding a random shape
+                int randShape = UnityEngine.Random.Range(0, 4);
+
+                switch (randShape)
+                {
+                    case 0:
+                        gameObject.tag = ("Circle");
+                        break;
+                    
+                    case 1: 
+                        gameObject.tag = ("Square");
+                        break;
+                    case 2: 
+                        gameObject.tag = ("Triangle");
+                        break;
+                    case 3: 
+                        gameObject.tag = ("Heart");
+                        break;
+                    default:
+                        Debug.Log("FallingObject: Not a real shape to switch");
+                        break;
+                    
+                }
+                currentTag = gameObject.tag;
+                switchShape(currentTag);
+                start = false;
+            }
+            
+            rb.linearVelocityX = -1 * moveSpeed;
         }
-        rb.linearVelocityX = -1 * moveSpeed;
+        else
+        {
+            rb.linearVelocityX = 0;
+        }
+
+    }
+
+    public void StopBehavior()
+    {
+        StopAllCoroutines();
+    }
+
+    void signalStart()
+    {
+        start = true;
+    }
+
+    void switchShape(string tag)
+    {
+        if(tag == "Circle")
+        {
+            Debug.Log("Circle");
+            //spriteRenderer.sprite = circleSprite;
+        }
+        else if(tag == "Square")
+        {
+            Debug.Log("Square");
+            //spriteRenderer.sprite = squareSprite;
+        }
+        else if(tag == "Triangle")
+        {
+            Debug.Log("Triangle");
+            //spriteRenderer.sprite = triangleSprite;
+        }
+        else if(tag == "Heart")
+        {
+            Debug.Log("Heart");
+            //spriteRenderer.sprite = heartSprite;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.CompareTag(currentTag))
+        {
+            //Visual feedback if correct/incorrect
+            Debug.Log("Correct shape");
+        }
+        else
+        {
+            //lose a life/end the game
+            Debug.Log("Incorrect Shape");
+        }
     }
 }
+
+
