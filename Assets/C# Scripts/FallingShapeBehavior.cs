@@ -25,13 +25,14 @@ public class FallingShapeBehavior : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+
         
     }
 
     void OnEnable()
     {
+        rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         DecoyShapeBehavior.OnShowDecoyComplete += signalStart;
     }
 
@@ -104,22 +105,22 @@ public class FallingShapeBehavior : MonoBehaviour
         if(tag == "Circle")
         {
             //Debug.Log("Circle");
-            //spriteRenderer.sprite = circleSprite;
+            spriteRenderer.sprite = circleSprite;
         }
         else if(tag == "Square")
         {
             //Debug.Log("Square");
-            //spriteRenderer.sprite = squareSprite;
+            spriteRenderer.sprite = squareSprite;
         }
         else if(tag == "Triangle")
         {
             //Debug.Log("Triangle");
-            //spriteRenderer.sprite = triangleSprite;
+            spriteRenderer.sprite = triangleSprite;
         }
         else if(tag == "Heart")
         {
             //Debug.Log("Heart");
-            //spriteRenderer.sprite = heartSprite;
+            spriteRenderer.sprite = heartSprite;
         }
     }
 

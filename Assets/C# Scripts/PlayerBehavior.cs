@@ -23,21 +23,29 @@ public class PlayerBehavior : MonoBehaviour
         {
             case 0:
                 gameObject.tag = "Circle";
+                spriteRenderer.sprite = circleSprite;
+                currentShape = 0;
                 break;
             case 1: 
                 gameObject.tag = "Square";
+                spriteRenderer.sprite = squareSprite;
+                currentShape = 1;
                 break;
             case 2:
                 gameObject.tag = "Triangle";
+                spriteRenderer.sprite = triangleSprite;
+                currentShape = 2;
                 break;
             case 3:
                 gameObject.tag = "Heart";
+                spriteRenderer.sprite = heartSprite;
+                currentShape = 3;
                 break;
             default:
                 Debug.Log("Not a shape (playerBehavior)");
                 break;
         }
 
-        Debug.Log("tag" + " " + gameObject.tag);
+        //Debug.Log("tag" + " " + gameObject.tag);
     }
 }

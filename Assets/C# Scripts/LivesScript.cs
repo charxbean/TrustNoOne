@@ -30,7 +30,7 @@ public class LivesScript : MonoBehaviour
 
     IEnumerator moveToLosingScene()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.2f);
         SceneManager.LoadScene(losingScene);
     }
 
