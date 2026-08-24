@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class LivesScript : MonoBehaviour
 {
     private string losingScene = "LosingScene";
+
     private SpriteRenderer spriteRenderer;
     [Header("Lives Sprites")]
     [SerializeField] private Sprite zeroLives;
@@ -16,15 +17,29 @@ public class LivesScript : MonoBehaviour
 
     void Start()
     {
-        lives = 1;
+        lives = 3;
         spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = ThreeLives;
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if(LivesScript.lives <= 0)
         {
             StartCoroutine(moveToLosingScene());
+        }
+
+        if(LivesScript.lives == 3)
+        {
+            spriteRenderer.sprite = ThreeLives;
+        }
+        else if(LivesScript.lives == 2)
+        {
+            spriteRenderer.sprite = TwoLives;
+        }
+        else if(LivesScript.lives == 1)
+        {
+            spriteRenderer.sprite = oneLife;
         }
     }
 

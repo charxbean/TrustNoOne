@@ -11,6 +11,7 @@ public class FallingShapeBehavior : MonoBehaviour
     private Rigidbody2D rb; 
     private string currentTag;
     private bool start = false;
+    private bool triggered = false;
 
     public float moveSpeed = 5f;
     [SerializeField] private DecoyShapeBehavior DecoyShapeBehavior;
@@ -50,8 +51,9 @@ public class FallingShapeBehavior : MonoBehaviour
     {
         if (start)
         {
-            if(rb.position.x <= -5)
+            if(triggered)
             {
+                triggered = false;
                 rb.position = new Vector2(15f, 0.5f);
                 //replace with finding a random shape
                 int randShape = UnityEngine.Random.Range(0, 4);
@@ -126,6 +128,7 @@ public class FallingShapeBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        triggered = true;
         if(other.CompareTag(currentTag))
         {
             //Visual feedback if correct/incorrect
