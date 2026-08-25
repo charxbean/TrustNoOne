@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameStageManager : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class GameStageManager : MonoBehaviour
 
     void Start()
     {
-        gameStage = 5;
+        gameStage = 0;
         StartCoroutine(SetGameStages());
     }
 
@@ -36,21 +37,25 @@ public class GameStageManager : MonoBehaviour
             //TUTORIAL STAGE
 
             //d1 - welcome
-            yield return ShowDialogue(6f);
+            yield return ShowDialogue(0f);
+            yield return StartCoroutine(WaitForUIButtonClick());
             HideDialogue();
 
             //d2 - match to correct shape
-            yield return ShowDialogue(5f);
+            yield return ShowDialogue(0f);
+            yield return StartCoroutine(WaitUntilDialogueClicked());
             HideDialogue();
 
             //start decoy
             //d3 - first up is triangle
             dialogue[dialogueIndex].SetActive(true);
-            decoyShapeBehavior.StartDecoy();
-            yield return new WaitForSeconds (5f);
+            decoyShapeBehavior.StartTutorial();
+            yield return WaitUntilDialogueClicked();
             HideDialogue();
-
-            yield return new WaitForSeconds(2f);
+            //start stage
+            decoyShapeBehavior.showSeconds = 1.5f;
+            decoyShapeBehavior.StartDecoy();
+            yield return new WaitForSeconds (6f);
             decoyShapeBehavior.StopDecoy();
 
             //thats not what I asked for
@@ -63,14 +68,15 @@ public class GameStageManager : MonoBehaviour
                 dialogueIndex++;
                 dialogue[dialogueIndex].SetActive(true);
             }
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(2f);
             dialogue[dialogueIndex].SetActive(false);
             dialogueIndex = 5;
 
-            yield return new WaitForSeconds(3f);
+            yield return new WaitForSeconds(2f);
 
             //alright, lets see how far you make it
-            yield return ShowDialogue(4f);
+            yield return ShowDialogue(0f);
+            yield return StartCoroutine(WaitUntilClicked());
             HideDialogue();
 
             gameStage = 1;
@@ -99,12 +105,12 @@ public class GameStageManager : MonoBehaviour
             decoyShapeBehavior.StopDecoy();
             yield return new WaitForSeconds(1f);
             dialogue[dialogueIndex].SetActive(true);
-            yield return new WaitForSeconds(4f);
+            yield return StartCoroutine(WaitUntilClicked());
+            //yield return new WaitForSeconds(4f);
 
-            dialogue[dialogueIndex].SetActive(false);
-            dialogueIndex ++;
+            HideDialogue();
 
-            fallingShapeBehavior.moveSpeed = 15f;
+            fallingShapeBehavior.moveSpeed = 12f;
             decoyShapeBehavior.waitSeconds = 2f;
             decoyShapeBehavior.showSeconds = .5f;
             decoyShapeBehavior.StartDecoy();
@@ -121,12 +127,14 @@ public class GameStageManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
 
             //Okay not bad, lets see if you can handle this...
-            yield return ShowDialogue(1f);
+            yield return ShowDialogue(2f);
 
             //rearrange UI buttons
             OnStage3Start?.Invoke();
             yield return new WaitForSeconds(2f);
             Debug.Log("Done?");
+            
+            yield return StartCoroutine(WaitUntilClicked());
 
             HideDialogue();
 
@@ -134,7 +142,7 @@ public class GameStageManager : MonoBehaviour
             yield return ShowDialogue(2f);
             HideDialogue();
 
-            fallingShapeBehavior.moveSpeed = 15f;
+            fallingShapeBehavior.moveSpeed = 14f;
             decoyShapeBehavior.waitSeconds = 1f;
             decoyShapeBehavior.showSeconds = .5f;
             decoyShapeBehavior.StartDecoy();
@@ -152,7 +160,7 @@ public class GameStageManager : MonoBehaviour
             yield return ShowDialogue(2f);
             HideDialogue();
 
-            fallingShapeBehavior.moveSpeed = 17f;
+            fallingShapeBehavior.moveSpeed = 15f;
             decoyShapeBehavior.waitSeconds = 1f;
             decoyShapeBehavior.showSeconds = .5f;
             decoyShapeBehavior.StartDecoy();
@@ -169,12 +177,12 @@ public class GameStageManager : MonoBehaviour
 
             //AHH NO more!!
             yield return ShowDialogue(2f);
-
             OnStage5Start?.Invoke();
+            yield return StartCoroutine(WaitUntilClicked());
             yield return new WaitForSeconds(2f);
             HideDialogue();
 
-            fallingShapeBehavior.moveSpeed = 17.5f;
+            fallingShapeBehavior.moveSpeed = 15.5f;
             decoyShapeBehavior.waitSeconds = 1f;
             decoyShapeBehavior.showSeconds = .5f;
             decoyShapeBehavior.StartDecoy();
@@ -193,6 +201,26 @@ public class GameStageManager : MonoBehaviour
             Debug.Log("Not a valid game stage number");
         }
         
+    }
+
+    IEnumerator WaitUntilClicked()
+    {
+        while (!Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            yield return null;
+        }
+    }
+
+    IEnumerator WaitUntilDialogueClicked()
+    {
+        ClickableDialogue.dialogueClicked = false;
+        yield return new WaitUntil(() => ClickableDialogue.dialogueClicked);
+    }
+
+    IEnumerator WaitForUIButtonClick()
+    {
+        UIButtonBehavior.buttonClicked = false;
+        yield return new WaitUntil(() => UIButtonBehavior.buttonClicked);
     }
 
     IEnumerator ShowDialogue(float showTime)

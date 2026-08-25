@@ -36,6 +36,13 @@ public class DecoyShapeBehavior : MonoBehaviour
         StartCoroutine(ShowDecoy());
     }
 
+    public void StartTutorial()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        spriteRenderer.enabled = true;
+    }
+
     public void StopDecoy()
     {
         StopAllCoroutines();

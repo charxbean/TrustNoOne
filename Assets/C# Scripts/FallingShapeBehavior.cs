@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using Unity.VectorGraphics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -34,6 +35,7 @@ public class FallingShapeBehavior : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.enabled = false;
         DecoyShapeBehavior.OnShowDecoyComplete += signalStart;
     }
 
@@ -51,10 +53,13 @@ public class FallingShapeBehavior : MonoBehaviour
     {
         if (start)
         {
+            spriteRenderer.enabled = true;
             if(triggered)
             {
+                spriteRenderer.enabled = false;
                 triggered = false;
-                rb.position = new Vector2(15f, 0.5f);
+                
+                rb.position = new Vector2(6f, 0.5f);
                 //replace with finding a random shape
                 int randShape = UnityEngine.Random.Range(0, 4);
 
@@ -82,11 +87,11 @@ public class FallingShapeBehavior : MonoBehaviour
                 switchShape(currentTag);
                 start = false;
             }
-            
             rb.linearVelocityX = -1 * moveSpeed;
         }
         else
         {
+            spriteRenderer.enabled = false;
             rb.linearVelocityX = 0;
         }
 
@@ -100,6 +105,7 @@ public class FallingShapeBehavior : MonoBehaviour
     void signalStart()
     {
         start = true;
+        spriteRenderer.enabled = true;
     }
 
     void switchShape(string tag)

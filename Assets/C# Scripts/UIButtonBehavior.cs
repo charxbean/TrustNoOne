@@ -7,6 +7,7 @@ using System.Collections;
 public class UIButtonBehavior : MonoBehaviour
 {
     public int thisButtonsShape;
+    public static bool buttonClicked = false;
     public float moveSpeed = 2f;
     
     [Header("Alt UI Sprites")]
@@ -22,6 +23,7 @@ public class UIButtonBehavior : MonoBehaviour
     {
         //Debug.Log("Change shape to" + thisButtonsShape);
         PlayerBehavior.currentShape = thisButtonsShape;
+        buttonClicked = true;
         
     }
 
@@ -44,7 +46,7 @@ public class UIButtonBehavior : MonoBehaviour
     
     public void StartButtonSwitchShapes()
     {
-        StartCoroutine(switchButtonShapes());
+        StartCoroutine(switchButtonColors());
     }
     IEnumerator rearrangeButtons(){
         RectTransform rect = GetComponent<RectTransform>();
@@ -93,7 +95,7 @@ public class UIButtonBehavior : MonoBehaviour
         yield return new WaitForSeconds(2f);
     }
 
-    IEnumerator switchButtonShapes()
+    IEnumerator switchButtonColors()
     {
         Image buttonImage = GetComponent<Image>();
 
