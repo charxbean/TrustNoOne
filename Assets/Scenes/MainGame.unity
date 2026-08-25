@@ -405,10 +405,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonBehavior
   thisButtonsShape: 3
   moveSpeed: 2
-  circleSprite: {fileID: -6518201551196023326, guid: 85b7577d707306140807ddbdb68e2064, type: 3}
-  squareSprite: {fileID: -3872045806157197291, guid: 85b7577d707306140807ddbdb68e2064, type: 3}
-  triangleSprite: {fileID: 2628877145970561752, guid: 85b7577d707306140807ddbdb68e2064, type: 3}
-  heartSprite: {fileID: -5147781683057914301, guid: 85b7577d707306140807ddbdb68e2064, type: 3}
+  circleSprite: {fileID: -5976807435745252920, guid: e30ae1f389c00d94b9221a10bba551ed, type: 3}
+  squareSprite: {fileID: 6369267051786305052, guid: e30ae1f389c00d94b9221a10bba551ed, type: 3}
+  triangleSprite: {fileID: -3051522935534016106, guid: e30ae1f389c00d94b9221a10bba551ed, type: 3}
+  heartSprite: {fileID: -7610613856425146608, guid: e30ae1f389c00d94b9221a10bba551ed, type: 3}
   gameStageManager: {fileID: 145301345}
 --- !u!1 &145301342
 GameObject:
@@ -903,10 +903,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonBehavior
   thisButtonsShape: 2
   moveSpeed: 2
-  circleSprite: {fileID: -6518201551196023326, guid: 85b7577d707306140807ddbdb68e2064, type: 3}
-  squareSprite: {fileID: -3872045806157197291, guid: 85b7577d707306140807ddbdb68e2064, type: 3}
-  triangleSprite: {fileID: 2628877145970561752, guid: 85b7577d707306140807ddbdb68e2064, type: 3}
-  heartSprite: {fileID: -5147781683057914301, guid: 85b7577d707306140807ddbdb68e2064, type: 3}
+  circleSprite: {fileID: -5976807435745252920, guid: e30ae1f389c00d94b9221a10bba551ed, type: 3}
+  squareSprite: {fileID: 6369267051786305052, guid: e30ae1f389c00d94b9221a10bba551ed, type: 3}
+  triangleSprite: {fileID: -3051522935534016106, guid: e30ae1f389c00d94b9221a10bba551ed, type: 3}
+  heartSprite: {fileID: -7610613856425146608, guid: e30ae1f389c00d94b9221a10bba551ed, type: 3}
   gameStageManager: {fileID: 145301345}
 --- !u!1 &519420028
 GameObject:
@@ -1846,10 +1846,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonBehavior
   thisButtonsShape: 0
   moveSpeed: 2
-  circleSprite: {fileID: -6518201551196023326, guid: 85b7577d707306140807ddbdb68e2064, type: 3}
-  squareSprite: {fileID: -3872045806157197291, guid: 85b7577d707306140807ddbdb68e2064, type: 3}
-  triangleSprite: {fileID: 2628877145970561752, guid: 85b7577d707306140807ddbdb68e2064, type: 3}
-  heartSprite: {fileID: -5147781683057914301, guid: 85b7577d707306140807ddbdb68e2064, type: 3}
+  circleSprite: {fileID: -5976807435745252920, guid: e30ae1f389c00d94b9221a10bba551ed, type: 3}
+  squareSprite: {fileID: 6369267051786305052, guid: e30ae1f389c00d94b9221a10bba551ed, type: 3}
+  triangleSprite: {fileID: -3051522935534016106, guid: e30ae1f389c00d94b9221a10bba551ed, type: 3}
+  heartSprite: {fileID: -7610613856425146608, guid: e30ae1f389c00d94b9221a10bba551ed, type: 3}
   gameStageManager: {fileID: 145301345}
 --- !u!1 &1200304321
 GameObject:
@@ -1999,10 +1999,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UIButtonBehavior
   thisButtonsShape: 1
   moveSpeed: 2
-  circleSprite: {fileID: -6518201551196023326, guid: 85b7577d707306140807ddbdb68e2064, type: 3}
-  squareSprite: {fileID: -3872045806157197291, guid: 85b7577d707306140807ddbdb68e2064, type: 3}
-  triangleSprite: {fileID: 2628877145970561752, guid: 85b7577d707306140807ddbdb68e2064, type: 3}
-  heartSprite: {fileID: -5147781683057914301, guid: 85b7577d707306140807ddbdb68e2064, type: 3}
+  circleSprite: {fileID: -5976807435745252920, guid: e30ae1f389c00d94b9221a10bba551ed, type: 3}
+  squareSprite: {fileID: 6369267051786305052, guid: e30ae1f389c00d94b9221a10bba551ed, type: 3}
+  triangleSprite: {fileID: -3051522935534016106, guid: e30ae1f389c00d94b9221a10bba551ed, type: 3}
+  heartSprite: {fileID: -7610613856425146608, guid: e30ae1f389c00d94b9221a10bba551ed, type: 3}
   gameStageManager: {fileID: 145301345}
 --- !u!1 &1286616811
 GameObject:

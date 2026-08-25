@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 85b7577d707306140807ddbdb68e2064
+guid: e30ae1f389c00d94b9221a10bba551ed
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5147781683057914301
-    second: WeirdsShapes__UI_0
+      213: -7610613856425146608
+    second: Mismatched_UI_sprites_0
   - first:
-      213: -3872045806157197291
-    second: WeirdsShapes__UI_1
+      213: 6369267051786305052
+    second: Mismatched_UI_sprites_1
   - first:
-      213: -6518201551196023326
-    second: WeirdsShapes__UI_2
+      213: -5976807435745252920
+    second: Mismatched_UI_sprites_2
   - first:
-      213: 2628877145970561752
-    second: WeirdsShapes__UI_3
+      213: -3051522935534016106
+    second: Mismatched_UI_sprites_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: WeirdsShapes__UI_0
+      name: Mismatched_UI_sprites_0
       rect:
         serializedVersion: 2
         x: 114
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 34e021855d76f88b0800000000000000
-      internalID: -5147781683057914301
+      spriteID: 0170d15350ba16690800000000000000
+      internalID: -7610613856425146608
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeirdsShapes__UI_1
+      name: Mismatched_UI_sprites_1
       rect:
         serializedVersion: 2
         x: 432
@@ -146,14 +146,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 51095f1badab34ac0800000000000000
-      internalID: -3872045806157197291
+      spriteID: c1e725543ae246850800000000000000
+      internalID: 6369267051786305052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeirdsShapes__UI_2
+      name: Mismatched_UI_sprites_2
       rect:
         serializedVersion: 2
         x: 738
@@ -168,14 +168,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2e59f8e5932ba85a0800000000000000
-      internalID: -6518201551196023326
+      spriteID: 8c9ad7dbd4d1e0da0800000000000000
+      internalID: -5976807435745252920
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WeirdsShapes__UI_3
+      name: Mismatched_UI_sprites_3
       rect:
         serializedVersion: 2
         x: 1022
@@ -190,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8d2d7bbf5d5ab7420800000000000000
-      internalID: 2628877145970561752
+      spriteID: 699a98bce00d6a5d0800000000000000
+      internalID: -3051522935534016106
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      WeirdsShapes__UI_0: -5147781683057914301
-      WeirdsShapes__UI_1: -3872045806157197291
-      WeirdsShapes__UI_2: -6518201551196023326
-      WeirdsShapes__UI_3: 2628877145970561752
+      Mismatched_UI_sprites_0: -7610613856425146608
+      Mismatched_UI_sprites_1: 6369267051786305052
+      Mismatched_UI_sprites_2: -5976807435745252920
+      Mismatched_UI_sprites_3: -3051522935534016106
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -51,7 +51,7 @@ public class GameStageManager : MonoBehaviour
             HideDialogue();
 
             yield return new WaitForSeconds(2f);
-            decoyShapeBehavior.StopAllCoroutines();
+            decoyShapeBehavior.StopDecoy();
 
             //thats not what I asked for
             if(PlayerBehavior.currentShape == 2)
@@ -96,7 +96,7 @@ public class GameStageManager : MonoBehaviour
             dialogueIndex = 6;
 
             //you think your smart huh? Lets see if you can keep up. 
-            decoyShapeBehavior.StopAllCoroutines();
+            decoyShapeBehavior.StopDecoy();
             yield return new WaitForSeconds(1f);
             dialogue[dialogueIndex].SetActive(true);
             yield return new WaitForSeconds(4f);
@@ -109,7 +109,7 @@ public class GameStageManager : MonoBehaviour
             decoyShapeBehavior.showSeconds = .5f;
             decoyShapeBehavior.StartDecoy();
 
-            yield return new WaitForSeconds(30f);
+            yield return new WaitForSeconds(20f);
             gameStage = 3;
         }
 
@@ -117,7 +117,7 @@ public class GameStageManager : MonoBehaviour
         {   
             //TIME TO SWITCH BUTTONS!!!
             dialogueIndex = 7;
-            decoyShapeBehavior.StopAllCoroutines();
+            decoyShapeBehavior.StopDecoy();
             yield return new WaitForSeconds(1f);
 
             //Okay not bad, lets see if you can handle this...
@@ -145,7 +145,7 @@ public class GameStageManager : MonoBehaviour
         
         if(gameStage == 4)
         {
-            decoyShapeBehavior.StopAllCoroutines();
+            decoyShapeBehavior.StopDecoy();
             dialogueIndex = 9;
 
             //Faster faster faster!!
@@ -164,7 +164,7 @@ public class GameStageManager : MonoBehaviour
 
         if(gameStage == 5)
         {
-            decoyShapeBehavior.StopAllCoroutines();
+            decoyShapeBehavior.StopDecoy();
             dialogueIndex = 10;
 
             //AHH NO more!!
@@ -173,7 +173,19 @@ public class GameStageManager : MonoBehaviour
             OnStage5Start?.Invoke();
             yield return new WaitForSeconds(2f);
             HideDialogue();
+
+            fallingShapeBehavior.moveSpeed = 17.5f;
+            decoyShapeBehavior.waitSeconds = 1f;
+            decoyShapeBehavior.showSeconds = .5f;
+            decoyShapeBehavior.StartDecoy();
             
+            yield return new WaitForSeconds(25f);
+            gameStage = 6;
+        }
+
+        if(gameStage == 6)
+        {
+            Debug.Log("End of game - Play cutscene");
         }
 
         else
