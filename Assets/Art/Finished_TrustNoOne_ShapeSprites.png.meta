@@ -1,0 +1,325 @@
+fileFormatVersion: 2
+guid: 385fe88aa9d686d4d9d6b016538f6d2a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1404854604039634254
+    second: Finished_TrustNoOne_ShapeSprites_0
+  - first:
+      213: -8220597530725405950
+    second: Finished_TrustNoOne_ShapeSprites_1
+  - first:
+      213: 214473831902839755
+    second: Finished_TrustNoOne_ShapeSprites_2
+  - first:
+      213: 2070103854425746296
+    second: Finished_TrustNoOne_ShapeSprites_3
+  - first:
+      213: 5857604552979699373
+    second: Finished_TrustNoOne_ShapeSprites_4
+  - first:
+      213: -8633227714359560256
+    second: Finished_TrustNoOne_ShapeSprites_5
+  - first:
+      213: -4997656544230215560
+    second: Finished_TrustNoOne_ShapeSprites_6
+  - first:
+      213: -3425758371005865813
+    second: Finished_TrustNoOne_ShapeSprites_7
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Finished_TrustNoOne_ShapeSprites_0
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 563
+        width: 375
+        height: 375
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4dbad2b1db0f7310800000000000000
+      internalID: 1404854604039634254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finished_TrustNoOne_ShapeSprites_1
+      rect:
+        serializedVersion: 2
+        x: 522
+        y: 575
+        width: 350
+        height: 350
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20ba8a3b9129aed80800000000000000
+      internalID: -8220597530725405950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finished_TrustNoOne_ShapeSprites_2
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 590
+        width: 369
+        height: 336
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc38f2450d6f9f200800000000000000
+      internalID: 214473831902839755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finished_TrustNoOne_ShapeSprites_3
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 596
+        width: 371
+        height: 322
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87ba63bdc7c7abc10800000000000000
+      internalID: 2070103854425746296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finished_TrustNoOne_ShapeSprites_4
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 142
+        width: 336
+        height: 337
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da6d0175e446a4150800000000000000
+      internalID: 5857604552979699373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finished_TrustNoOne_ShapeSprites_5
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 154
+        width: 312
+        height: 312
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c77a84722d903880800000000000000
+      internalID: -8633227714359560256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finished_TrustNoOne_ShapeSprites_6
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 169
+        width: 340
+        height: 308
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87070cb0ad1c4aab0800000000000000
+      internalID: -4997656544230215560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Finished_TrustNoOne_ShapeSprites_7
+      rect:
+        serializedVersion: 2
+        x: 1481
+        y: 157
+        width: 334
+        height: 284
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba0efd979e24570d0800000000000000
+      internalID: -3425758371005865813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Finished_TrustNoOne_ShapeSprites_0: 1404854604039634254
+      Finished_TrustNoOne_ShapeSprites_1: -8220597530725405950
+      Finished_TrustNoOne_ShapeSprites_2: 214473831902839755
+      Finished_TrustNoOne_ShapeSprites_3: 2070103854425746296
+      Finished_TrustNoOne_ShapeSprites_4: 5857604552979699373
+      Finished_TrustNoOne_ShapeSprites_5: -8633227714359560256
+      Finished_TrustNoOne_ShapeSprites_6: -4997656544230215560
+      Finished_TrustNoOne_ShapeSprites_7: -3425758371005865813
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
