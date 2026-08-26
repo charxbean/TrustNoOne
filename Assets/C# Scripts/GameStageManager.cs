@@ -19,7 +19,7 @@ public class GameStageManager : MonoBehaviour
 
     void Start()
     {
-        gameStage = 0;
+        gameStage = 1;
         StartCoroutine(SetGameStages());
     }
 
@@ -39,6 +39,7 @@ public class GameStageManager : MonoBehaviour
             //d1 - welcome
             yield return ShowDialogue(0f);
             yield return StartCoroutine(WaitForUIButtonClick());
+            yield return new WaitForSeconds(1f);
             HideDialogue();
 
             //d2 - match to correct shape
@@ -55,10 +56,12 @@ public class GameStageManager : MonoBehaviour
             //start stage
             decoyShapeBehavior.showSeconds = 1.5f;
             decoyShapeBehavior.StartDecoy();
-            yield return new WaitForSeconds (6f);
+            yield return new WaitForSeconds(3f);
             decoyShapeBehavior.StopDecoy();
+            fallingShapeBehavior.StopBehavior();
 
             //thats not what I asked for
+            decoyShapeBehavior.revealDecoy();
             if(PlayerBehavior.currentShape == 2)
             {
                 dialogue[dialogueIndex].SetActive(true);
@@ -76,7 +79,7 @@ public class GameStageManager : MonoBehaviour
 
             //alright, lets see how far you make it
             yield return ShowDialogue(0f);
-            yield return StartCoroutine(WaitUntilClicked());
+            yield return StartCoroutine(WaitUntilDialogueClicked());
             HideDialogue();
 
             gameStage = 1;
@@ -89,7 +92,7 @@ public class GameStageManager : MonoBehaviour
             decoyShapeBehavior.StartDecoy();
             fallingShapeBehavior.moveSpeed = 9f;
             decoyShapeBehavior.showSeconds = 1f;
-            decoyShapeBehavior.waitSeconds = 4f;
+            decoyShapeBehavior.waitSeconds = 3f;
 
             yield return new WaitForSeconds(15f);
             
@@ -103,9 +106,10 @@ public class GameStageManager : MonoBehaviour
 
             //you think your smart huh? Lets see if you can keep up. 
             decoyShapeBehavior.StopDecoy();
+            decoyShapeBehavior.revealDecoy();
             yield return new WaitForSeconds(1f);
             dialogue[dialogueIndex].SetActive(true);
-            yield return StartCoroutine(WaitUntilClicked());
+            yield return StartCoroutine(WaitUntilDialogueClicked());
             //yield return new WaitForSeconds(4f);
 
             HideDialogue();
@@ -127,6 +131,7 @@ public class GameStageManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
 
             //Okay not bad, lets see if you can handle this...
+            decoyShapeBehavior.revealDecoy();
             yield return ShowDialogue(2f);
 
             //rearrange UI buttons
@@ -134,7 +139,7 @@ public class GameStageManager : MonoBehaviour
             yield return new WaitForSeconds(2f);
             Debug.Log("Done?");
             
-            yield return StartCoroutine(WaitUntilClicked());
+            yield return StartCoroutine(WaitUntilDialogueClicked());
 
             HideDialogue();
 
@@ -154,6 +159,7 @@ public class GameStageManager : MonoBehaviour
         if(gameStage == 4)
         {
             decoyShapeBehavior.StopDecoy();
+            decoyShapeBehavior.revealDecoy();
             dialogueIndex = 9;
 
             //Faster faster faster!!
@@ -178,8 +184,8 @@ public class GameStageManager : MonoBehaviour
             //AHH NO more!!
             yield return ShowDialogue(2f);
             OnStage5Start?.Invoke();
-            yield return StartCoroutine(WaitUntilClicked());
-            yield return new WaitForSeconds(2f);
+            yield return StartCoroutine(WaitUntilDialogueClicked());
+            yield return new WaitForSeconds(1f);
             HideDialogue();
 
             fallingShapeBehavior.moveSpeed = 15.5f;
@@ -202,15 +208,6 @@ public class GameStageManager : MonoBehaviour
         }
         
     }
-
-    IEnumerator WaitUntilClicked()
-    {
-        while (!Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            yield return null;
-        }
-    }
-
     IEnumerator WaitUntilDialogueClicked()
     {
         ClickableDialogue.dialogueClicked = false;

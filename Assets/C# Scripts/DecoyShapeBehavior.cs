@@ -13,6 +13,8 @@ public class DecoyShapeBehavior : MonoBehaviour
     public float showSeconds = 2f;
     public float waitSeconds = 5f;
     private string currentTag;
+    private int prevPrevShape;
+    private int prevShape;
 
     [Header("Shape Sprites")]
     [SerializeField] private Sprite circleSprite;
@@ -31,7 +33,7 @@ public class DecoyShapeBehavior : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        spriteRenderer.enabled = false;
+        //spriteRenderer.enabled = false;
 
         StartCoroutine(ShowDecoy());
     }
@@ -40,7 +42,7 @@ public class DecoyShapeBehavior : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        spriteRenderer.enabled = true;
+        //spriteRenderer.enabled = true;
     }
 
     public void StopDecoy()
@@ -48,6 +50,12 @@ public class DecoyShapeBehavior : MonoBehaviour
         StopAllCoroutines();
     }
 
+    public void revealDecoy()
+    {
+        gameObject.tag = ("Triangle");
+        spriteRenderer.enabled = true;
+        spriteRenderer.sprite = triangleSprite;
+    }
     IEnumerator ShowDecoy()
     {
         while (true)
@@ -60,6 +68,19 @@ public class DecoyShapeBehavior : MonoBehaviour
             else
             {
                 randShape = UnityEngine.Random.Range(0, 4);
+                if(randShape == prevShape && prevShape == prevPrevShape)
+                {
+                    if(randShape == 3)
+                    {
+                        randShape = 0;
+                    }
+                    else
+                    {
+                        randShape ++;
+                    }
+                }
+                prevPrevShape = prevShape;
+                prevShape = randShape;
 
                 switch (randShape)
                 {

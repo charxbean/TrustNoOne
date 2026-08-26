@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.InputSystem;
 
 public class UIButtonBehavior : MonoBehaviour
 {
@@ -16,15 +17,40 @@ public class UIButtonBehavior : MonoBehaviour
     [SerializeField] private Sprite squareSprite;
     [SerializeField] private Sprite triangleSprite;
     [SerializeField] private Sprite heartSprite;
+
+    [Header("Keyboard Button")]
+
+    [SerializeField] private Key keyBeforeSwitch;
+    [SerializeField] private Key keyAfterSwitch;
     [SerializeField] private GameStageManager gameStageManager;
 
     //set global var to a number
+
+
+    void Update()
+    {
+        KeyboardButtons();
+    }
+    //ON CLICK BEHAVIOR
     public void SwitchShape()
     {
         //Debug.Log("Change shape to" + thisButtonsShape);
         PlayerBehavior.currentShape = thisButtonsShape;
         buttonClicked = true;
         
+    }
+
+    void KeyboardButtons()
+    {
+        if (GameStageManager.gameStage < 3 && Keyboard.current[keyBeforeSwitch].wasPressedThisFrame)
+        {
+            SwitchShape();
+        }
+        
+        if (GameStageManager.gameStage >= 3 && Keyboard.current[keyAfterSwitch].wasPressedThisFrame)
+        {
+            SwitchShape();
+        }
     }
 
     void OnEnable()

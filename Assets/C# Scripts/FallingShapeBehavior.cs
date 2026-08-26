@@ -13,6 +13,10 @@ public class FallingShapeBehavior : MonoBehaviour
     private string currentTag;
     private bool start = false;
     private bool triggered = false;
+    private int prevShape = 1;
+    private int prevPrevShape = 1;
+    public progressbar progress;
+
 
     public float moveSpeed = 5f;
     [SerializeField] private DecoyShapeBehavior DecoyShapeBehavior;
@@ -52,7 +56,7 @@ public class FallingShapeBehavior : MonoBehaviour
     void FixedUpdate()
     {
         if (start)
-        {
+        {   
             spriteRenderer.enabled = true;
             if(triggered)
             {
@@ -62,6 +66,19 @@ public class FallingShapeBehavior : MonoBehaviour
                 rb.position = new Vector2(6f, 0.5f);
                 //replace with finding a random shape
                 int randShape = UnityEngine.Random.Range(0, 4);
+                if(randShape == prevShape && prevShape == prevPrevShape)
+                {
+                    if(randShape == 3)
+                    {
+                        randShape = 0;
+                    }
+                    else
+                    {
+                        randShape ++;
+                    }
+                }
+                prevPrevShape = prevShape;
+                prevShape = randShape;
 
                 switch (randShape)
                 {
@@ -135,6 +152,7 @@ public class FallingShapeBehavior : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         triggered = true;
+        progress.StartIncreaseProgress();
         if(other.CompareTag(currentTag))
         {
             //Visual feedback if correct/incorrect

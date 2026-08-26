@@ -283,3 +283,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6803e3f30a4306f4db72c640cfffdab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ClickableDialogue
+  key: 1
