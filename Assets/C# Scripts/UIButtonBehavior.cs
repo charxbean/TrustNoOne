@@ -4,12 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class UIButtonBehavior : MonoBehaviour
 {
     public int thisButtonsShape;
     public static bool buttonClicked = false;
     public float moveSpeed = 2f;
+
+    [SerializeField] private Button thisButton;
     
     [Header("Alt UI Sprites")]
     
@@ -24,9 +27,18 @@ public class UIButtonBehavior : MonoBehaviour
     [SerializeField] private Key keyAfterSwitch;
     [SerializeField] private GameStageManager gameStageManager;
 
+    private Color normalColor;
+    private Color pressedColor;
+
+
     //set global var to a number
 
-
+    void Start()
+    {
+        ColorBlock colors = thisButton.colors; 
+        normalColor = colors.normalColor;
+        pressedColor = colors.pressedColor;
+    }
     void Update()
     {
         KeyboardButtons();
@@ -34,7 +46,6 @@ public class UIButtonBehavior : MonoBehaviour
     //ON CLICK BEHAVIOR
     public void SwitchShape()
     {
-        //Debug.Log("Change shape to" + thisButtonsShape);
         PlayerBehavior.currentShape = thisButtonsShape;
         buttonClicked = true;
         
@@ -44,13 +55,25 @@ public class UIButtonBehavior : MonoBehaviour
     {
         if (GameStageManager.gameStage < 3 && Keyboard.current[keyBeforeSwitch].wasPressedThisFrame)
         {
+            thisButton.targetGraphic.color = pressedColor;
             SwitchShape();
+            StartCoroutine(KeyboardPressVisual());
         }
         
         if (GameStageManager.gameStage >= 3 && Keyboard.current[keyAfterSwitch].wasPressedThisFrame)
         {
+
+            thisButton.targetGraphic.color = pressedColor;
             SwitchShape();
+            StartCoroutine(KeyboardPressVisual());
         }
+    }
+
+    private IEnumerator KeyboardPressVisual()
+    {
+        yield return new WaitForSeconds(.2f);
+
+        thisButton.targetGraphic.color = normalColor;
     }
 
     void OnEnable()

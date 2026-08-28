@@ -13,11 +13,11 @@ public class LivesScript : MonoBehaviour
     [SerializeField] private Sprite TwoLives;
     [SerializeField] private Sprite ThreeLives;
 
-    public static int lives = 1;
+    public static int lives = 3;
 
     void Start()
     {
-        lives = 3;
+        lives = 100;
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = ThreeLives;
     }

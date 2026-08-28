@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Text.RegularExpressions;
+using Unity.Mathematics;
 using Unity.VectorGraphics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -15,9 +17,10 @@ public class FallingShapeBehavior : MonoBehaviour
     private bool triggered = false;
     private int prevShape = 1;
     private int prevPrevShape = 1;
+    [SerializeField] private ParticleSystem matchParticles;
     public progressbar progress;
 
-
+    public Animator shapeMatchAnimator;
     public float moveSpeed = 5f;
     [SerializeField] private DecoyShapeBehavior DecoyShapeBehavior;
 
@@ -62,8 +65,9 @@ public class FallingShapeBehavior : MonoBehaviour
             {
                 spriteRenderer.enabled = false;
                 triggered = false;
+                shapeMatchAnimator.SetBool("ShapeMatch", false);
                 
-                rb.position = new Vector2(6f, 0.5f);
+                rb.position = new Vector2(4.96f, 0.27f);
                 //replace with finding a random shape
                 int randShape = UnityEngine.Random.Range(0, 4);
                 if(randShape == prevShape && prevShape == prevPrevShape)
@@ -152,9 +156,11 @@ public class FallingShapeBehavior : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         triggered = true;
-        progress.StartIncreaseProgress();
+        SpawnParticleInstance();
+        
         if(other.CompareTag(currentTag))
         {
+            progress.StartIncreaseProgress();
             //Visual feedback if correct/incorrect
             Debug.Log("Correct shape");
         }
@@ -165,6 +171,12 @@ public class FallingShapeBehavior : MonoBehaviour
             LivesScript.lives -= 1;
             Debug.Log("lives " + LivesScript.lives);
         }
+        shapeMatchAnimator.SetBool("ShapeMatch", true);
+    }
+
+    private void SpawnParticleInstance()
+    {
+        matchParticles = Instantiate(matchParticles, transform.position, Quaternion.identity);
     }
 }
 

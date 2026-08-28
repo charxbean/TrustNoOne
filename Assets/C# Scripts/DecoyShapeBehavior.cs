@@ -16,6 +16,8 @@ public class DecoyShapeBehavior : MonoBehaviour
     private int prevPrevShape;
     private int prevShape;
 
+    public Animator decoyAnim;
+
     [Header("Shape Sprites")]
     [SerializeField] private Sprite circleSprite;
     [SerializeField] private Sprite squareSprite;
@@ -23,6 +25,7 @@ public class DecoyShapeBehavior : MonoBehaviour
     [SerializeField] private Sprite heartSprite;
 
     private int randShape;
+    //growAnim.SetTrigger("GrowAnim");
 
     void Start()
     {
@@ -33,16 +36,12 @@ public class DecoyShapeBehavior : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        //spriteRenderer.enabled = false;
-
         StartCoroutine(ShowDecoy());
     }
 
     public void StartTutorial()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-
-        //spriteRenderer.enabled = true;
     }
 
     public void StopDecoy()
@@ -52,9 +51,9 @@ public class DecoyShapeBehavior : MonoBehaviour
 
     public void revealDecoy()
     {
-        gameObject.tag = ("Triangle");
+        //gameObject.tag = ("Triangle");
         spriteRenderer.enabled = true;
-        spriteRenderer.sprite = triangleSprite;
+        //spriteRenderer.sprite = triangleSprite;
     }
     IEnumerator ShowDecoy()
     {
@@ -108,18 +107,32 @@ public class DecoyShapeBehavior : MonoBehaviour
                 }
             }
 
-            currentTag = gameObject.tag;
+            if(GameStageManager.gameStage == 4)
+            {
+                currentTag = gameObject.tag;
+                spriteRenderer.enabled = true;
+                decoyAnim.SetBool("moveForward", true);
+                yield return new WaitForSeconds(1.34f);
+                decoyAnim.SetBool("moveForward", false);
+                spriteRenderer.enabled = false;
+                OnShowDecoyComplete?.Invoke();
+                yield return new WaitForSeconds(.5f);
+            }
+            else
+            {
+                currentTag = gameObject.tag;
 
-            yield return new WaitForSeconds(waitBeforeSeconds);
-            spriteRenderer.enabled = true;
-            
-            yield return new WaitForSeconds(showSeconds);
+                yield return new WaitForSeconds(waitBeforeSeconds);
+                spriteRenderer.enabled = true;
 
-            spriteRenderer.enabled = false;
 
-            OnShowDecoyComplete?.Invoke();
+                yield return new WaitForSeconds(showSeconds);
+                spriteRenderer.enabled = false;
 
-            yield return new WaitForSeconds(waitSeconds);
+                OnShowDecoyComplete?.Invoke();
+
+                yield return new WaitForSeconds(waitSeconds);
+            }
 
         }
 

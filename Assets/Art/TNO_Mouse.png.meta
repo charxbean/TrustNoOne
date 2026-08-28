@@ -1,25 +1,10 @@
 fileFormatVersion: 2
-guid: d93a9b35b9e6b724eb66607a944c74e5
+guid: 9cbd7097701ac9d46a1543047690d729
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6904902628947341145
-    second: Finished_TrustNoOne_Lives_0
-  - first:
-      213: 96033327473819525
-    second: Finished_TrustNoOne_Lives_1
-  - first:
-      213: -316283582468216273
-    second: Finished_TrustNoOne_Lives_2
-  - first:
-      213: -1754106827491158174
-    second: Finished_TrustNoOne_Lives_3
-  - first:
-      213: 6473830435685365485
-    second: Finished_TrustNoOne_Lives_4
-  - first:
-      213: -50386975685123073
-    second: Finished_TrustNoOne_Lives_5
+      213: 327205630148113379
+    second: TNO_Mouse_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -115,67 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Finished_TrustNoOne_Lives_0
+      name: TNO_Mouse_0
       rect:
         serializedVersion: 2
-        x: 709
-        y: 706
-        width: 504
-        height: 170
+        x: 888
+        y: 467
+        width: 144
+        height: 147
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a0dee884abdc20a0800000000000000
-      internalID: -6904902628947341145
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Finished_TrustNoOne_Lives_1
-      rect:
-        serializedVersion: 2
-        x: 708
-        y: 454
-        width: 504
-        height: 170
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 58ffca27dcd255100800000000000000
-      internalID: 96033327473819525
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Finished_TrustNoOne_Lives_2
-      rect:
-        serializedVersion: 2
-        x: 707
-        y: 207
-        width: 504
-        height: 170
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2613d165169c6384c9ea54c17707195d
-      internalID: -316283582468216273
+      spriteID: 3e37c7979c77a8400800000000000000
+      internalID: 327205630148113379
       vertices: []
       indices: 
       edges: []
@@ -184,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: df115e15481a61d4dbb227dbf9c69d15
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -194,12 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Finished_TrustNoOne_Lives_0: -6904902628947341145
-      Finished_TrustNoOne_Lives_1: 96033327473819525
-      Finished_TrustNoOne_Lives_2: -316283582468216273
-      Finished_TrustNoOne_Lives_3: -1754106827491158174
-      Finished_TrustNoOne_Lives_4: 6473830435685365485
-      Finished_TrustNoOne_Lives_5: -50386975685123073
+      TNO_Mouse_0: 327205630148113379
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
