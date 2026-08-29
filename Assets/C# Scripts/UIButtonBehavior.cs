@@ -12,6 +12,8 @@ public class UIButtonBehavior : MonoBehaviour
     public static bool buttonClicked = false;
     public float moveSpeed = 2f;
 
+    [SerializeField] private AudioManager audioManager;
+
     [SerializeField] private Button thisButton;
     
     [Header("Alt UI Sprites")]
@@ -46,6 +48,7 @@ public class UIButtonBehavior : MonoBehaviour
     //ON CLICK BEHAVIOR
     public void SwitchShape()
     {
+        audioManager.playSFX(audioManager.buttonPress);
         PlayerBehavior.currentShape = thisButtonsShape;
         buttonClicked = true;
         
@@ -105,19 +108,19 @@ public class UIButtonBehavior : MonoBehaviour
 
         if(thisButtonsShape == 0)
         {
-            targetPosition = new UnityEngine.Vector2(182, -412);
+            targetPosition = new UnityEngine.Vector2(222.5794f, -425.0015f);
         }
         else if(thisButtonsShape == 1)
         {
-            targetPosition = new UnityEngine.Vector2(-542, -412);
+            targetPosition = new UnityEngine.Vector2(-559.9954f, -425.0015f);
         }
         else if(thisButtonsShape == 2)
         {
-            targetPosition = new UnityEngine.Vector2(550, -412);
+            targetPosition = new UnityEngine.Vector2(598.0844f, -425.0015f);
         }
         else if(thisButtonsShape == 3)
         {
-            targetPosition = new UnityEngine.Vector2(-180, -412);
+            targetPosition = new UnityEngine.Vector2(-174.9801f, -425.0015f);
         }
         else
         {

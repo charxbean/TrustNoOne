@@ -31,6 +31,8 @@ public class FallingShapeBehavior : MonoBehaviour
     [SerializeField] private Sprite triangleSprite;
     [SerializeField] private Sprite heartSprite;
 
+    [SerializeField] private AudioManager audioManager;
+
 
     void Start()
     {
@@ -126,6 +128,7 @@ public class FallingShapeBehavior : MonoBehaviour
     void signalStart()
     {
         start = true;
+        audioManager.playDialogueSFX(audioManager.fallingShape);
         spriteRenderer.enabled = true;
     }
 
@@ -156,11 +159,13 @@ public class FallingShapeBehavior : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         triggered = true;
-        SpawnParticleInstance();
+
+        progress.StartIncreaseProgress();
         
         if(other.CompareTag(currentTag))
         {
-            progress.StartIncreaseProgress();
+            SpawnParticleInstance();
+            audioManager.playSFX(audioManager.matchGood);
             //Visual feedback if correct/incorrect
             Debug.Log("Correct shape");
         }
@@ -168,6 +173,7 @@ public class FallingShapeBehavior : MonoBehaviour
         {
             //lose a life/end the game
             Debug.Log("Incorrect Shape");
+            audioManager.playSFX(audioManager.matchBad);
             LivesScript.lives -= 1;
             Debug.Log("lives " + LivesScript.lives);
         }

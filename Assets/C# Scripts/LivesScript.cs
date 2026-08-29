@@ -8,16 +8,20 @@ public class LivesScript : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     [Header("Lives Sprites")]
-    [SerializeField] private Sprite zeroLives;
+    [SerializeField] private Sprite fourLives;
     [SerializeField] private Sprite oneLife;
     [SerializeField] private Sprite TwoLives;
     [SerializeField] private Sprite ThreeLives;
+    [SerializeField] private Sprite noLives;
 
-    public static int lives = 3;
+    [SerializeField] private AudioManager audioManager;
+
+
+    public static int lives = 4;
 
     void Start()
     {
-        lives = 100;
+        lives = 4;
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = ThreeLives;
     }
@@ -29,7 +33,11 @@ public class LivesScript : MonoBehaviour
             StartCoroutine(moveToLosingScene());
         }
 
-        if(LivesScript.lives == 3)
+        if(LivesScript.lives == 4)
+        {
+            spriteRenderer.sprite = fourLives;
+        }
+        else if(LivesScript.lives == 3)
         {
             spriteRenderer.sprite = ThreeLives;
         }
@@ -40,6 +48,10 @@ public class LivesScript : MonoBehaviour
         else if(LivesScript.lives == 1)
         {
             spriteRenderer.sprite = oneLife;
+        }
+        else if(LivesScript.lives <= 0)
+        {
+            spriteRenderer.sprite = noLives;
         }
     }
 
