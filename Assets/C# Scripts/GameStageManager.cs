@@ -167,7 +167,7 @@ public class GameStageManager : MonoBehaviour
 
         if(gameStage == 1)
         {    
-            LivesScript.lives = 10;
+            LivesScript.lives = 4;
             audioManager.playDialogueSFX(audioManager.addLife);
             dialogueIndex = dialogueStage1n2;
             //MAIN SLOW GAME 
