@@ -4,6 +4,7 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameStageManager : MonoBehaviour
 {
@@ -27,10 +28,14 @@ public class GameStageManager : MonoBehaviour
     //dialogue popup texts
     public GameObject[] dialogue;
     public FallingShapeBehavior fallingShapeBehavior;
+    public winPlayerActivate winActivate;
     public DecoyShapeBehavior decoyShapeBehavior;
+
+    public DistractionObjects distraction;
 
     public GameObject buttonHighlights;
     public Animator decoy;
+    public Animator player;
 
     [SerializeField] private AudioManager audioManager;
 
@@ -43,9 +48,28 @@ public class GameStageManager : MonoBehaviour
     [SerializeField] private SpriteRenderer progressMarker5;
     [SerializeField] private SpriteRenderer progressStar;
 
+    public progressbar progress;
+
+    public void activateProgressMarker(SpriteRenderer pm)
+    {
+        Color color = pm.color; 
+        color.a = 1; 
+        pm.color = color;
+    }
     void Start()
     {
-        gameStage = 0;
+        if (ButtonClicks.tryAgain)
+        {
+            gameStage = 1;
+            progress.StartIncreaseProgress();
+            activateProgressMarker(progressMarker1);
+            ButtonClicks.tryAgain = false;
+
+        }
+        else
+        {
+            gameStage = 0;
+        }
         StartCoroutine(SetGameStages());
     }
 
@@ -54,13 +78,6 @@ public class GameStageManager : MonoBehaviour
         Color color = bgRed.color; 
         color.a = newAlpha; 
         bgRed.color = color;
-    }
-
-    public void activateProgressMarker(SpriteRenderer pm)
-    {
-        Color color = pm.color; 
-        color.a = 1; 
-        pm.color = color;
     }
 
     IEnumerator SetGameStages()
@@ -287,14 +304,28 @@ public class GameStageManager : MonoBehaviour
 
             yield return new WaitForSeconds(25f);
             activateProgressMarker(progressStar);
+            audioManager.stopMusic();
+            audioManager.playSFX(audioManager.winSound);
             gameStage = 6;
         }
 
         if(gameStage == 6)
         {
+            Debug.Log("GAME STAGE 6");
             decoyShapeBehavior.StopDecoy();
             decoyShapeBehavior.revealDecoy();
-            Debug.Log("End of game - Play cutscene");
+            Debug.Log("Start Activate Player");
+            winActivate.ActivateWinPlayer();
+            //audioManager.playSFX(audioManager.angryTriangle);
+            yield return ShowDialogue(2.5f);
+            HideDialogue();
+            distraction.HideAllDistractions();
+            yield return ShowDialogue(2.5f);
+            Debug.Log("Setting trigger");
+            player.SetTrigger("WIN");
+            audioManager.playSFX(audioManager.WinAnimation);
+            yield return new WaitForSeconds(3.5f);
+            SceneManager.LoadScene("WinScreen");
         }
 
         else

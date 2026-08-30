@@ -23,11 +23,19 @@ public class AudioManager : MonoBehaviour
     public AudioClip fallingShape;
     public AudioClip distractionShapes;
     public AudioClip loseSound;
+    public AudioClip winSound;
+    public AudioClip angryTriangle;
+    public AudioClip WinAnimation;
 
     private void Start()
     {
         musicSource.clip = background;
         musicSource.Play();
+    }
+
+    public void stopMusic()
+    {
+        musicSource.Stop();
     }
 
     public void playSFX(AudioClip clip)

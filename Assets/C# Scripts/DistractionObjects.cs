@@ -30,6 +30,22 @@ public class DistractionObjects : MonoBehaviour
         StartCoroutine(ShowObjects());
     }
 
+    public void HideAllDistractions()
+    {
+        for(int i = 0; i < distractionObjects.Length; i++)
+        {
+            if(distractionObjects[i] != null)
+            {
+                distractionObjects[i].SetActive(false);
+            }
+            else
+            {
+                Debug.Log("(1) distraction object: " + distractionObjects[i]+ " is null.");
+            }
+        }
+        StopAllCoroutines();
+    }
+
     void OnDestroy()
     {
         GameStageManager.OnStage5Distraction -= StartShowObjects;
