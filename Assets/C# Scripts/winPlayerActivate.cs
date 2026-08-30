@@ -10,7 +10,7 @@ public class winPlayerActivate : MonoBehaviour
         player.SetActive(false);
         if(winPlayer!= null)
         {
-            Debug.Log("Actiavted");
+            //Debug.Log("Actiavted");
             winPlayer.SetActive(true);
         }
         else

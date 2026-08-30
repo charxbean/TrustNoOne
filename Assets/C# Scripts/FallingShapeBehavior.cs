@@ -42,6 +42,7 @@ public class FallingShapeBehavior : MonoBehaviour
 
     void OnEnable()
     {
+        //gameObject.SetActive(true);
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.enabled = false;
@@ -122,7 +123,14 @@ public class FallingShapeBehavior : MonoBehaviour
 
     public void StopBehavior()
     {
+
         StopAllCoroutines();
+    }
+
+    public void EndGame()
+    {
+        StopAllCoroutines();
+        gameObject.SetActive(false);
     }
 
     void signalStart()
@@ -167,15 +175,15 @@ public class FallingShapeBehavior : MonoBehaviour
             SpawnParticleInstance();
             audioManager.playSFX(audioManager.matchGood);
             //Visual feedback if correct/incorrect
-            Debug.Log("Correct shape");
+            //Debug.Log("Correct shape");
         }
         else
         {
             //lose a life/end the game
-            Debug.Log("Incorrect Shape");
+            //Debug.Log("Incorrect Shape");
             audioManager.playSFX(audioManager.matchBad);
             LivesScript.lives -= 1;
-            Debug.Log("lives " + LivesScript.lives);
+            //Debug.Log("lives " + LivesScript.lives);
         }
         shapeMatchAnimator.SetBool("ShapeMatch", true);
     }

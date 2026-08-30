@@ -60,7 +60,7 @@ public class DistractionObjects : MonoBehaviour
             {
                 Debug.Log("(2) distraction object: " + distractionObjects[i]+ " is null.");
             }
-            Debug.Log("enabling distraction object: " + distractionObjects[i]);
+            //Debug.Log("enabling distraction object: " + distractionObjects[i]);
             distractionObjects[i].SetActive(true);
             audioManager.playSFX(audioManager.distractionShapes);
             yield return new WaitForSeconds(2f);

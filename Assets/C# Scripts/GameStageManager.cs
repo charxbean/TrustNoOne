@@ -167,7 +167,7 @@ public class GameStageManager : MonoBehaviour
 
         if(gameStage == 1)
         {    
-            LivesScript.lives = 4;
+            LivesScript.lives = 10;
             audioManager.playDialogueSFX(audioManager.addLife);
             dialogueIndex = dialogueStage1n2;
             //MAIN SLOW GAME 
@@ -225,7 +225,7 @@ public class GameStageManager : MonoBehaviour
             audioManager.playSFX(audioManager.ButtonsChange);
             increaseBGRed(bgRed, .05f);
             yield return new WaitForSeconds(2f);
-            Debug.Log("Done?");
+            //Debug.Log("Done?");
             decoy.SetTrigger("GrowAnim");
             audioManager.playSFX(audioManager.decoyStageGrow);
             
@@ -269,7 +269,7 @@ public class GameStageManager : MonoBehaviour
             yield return new WaitForSeconds(20f);
             activateProgressMarker(progressMarker5);
             gameStage = 5;
-            Debug.Log("stage 4");
+            //Debug.Log("stage 4");
         }
 
         if(gameStage == 5)
@@ -306,22 +306,22 @@ public class GameStageManager : MonoBehaviour
             activateProgressMarker(progressStar);
             audioManager.stopMusic();
             audioManager.playSFX(audioManager.winSound);
+            fallingShapeBehavior.EndGame();
             gameStage = 6;
         }
 
         if(gameStage == 6)
         {
-            Debug.Log("GAME STAGE 6");
+            //Debug.Log("GAME STAGE 6");
             decoyShapeBehavior.StopDecoy();
             decoyShapeBehavior.revealDecoy();
-            Debug.Log("Start Activate Player");
             winActivate.ActivateWinPlayer();
-            //audioManager.playSFX(audioManager.angryTriangle);
             yield return ShowDialogue(2.5f);
+            yield return StartCoroutine(WaitUntilDialogueClicked());
             HideDialogue();
             distraction.HideAllDistractions();
             yield return ShowDialogue(2.5f);
-            Debug.Log("Setting trigger");
+            yield return StartCoroutine(WaitUntilDialogueClicked());
             player.SetTrigger("WIN");
             audioManager.playSFX(audioManager.WinAnimation);
             yield return new WaitForSeconds(3.5f);
